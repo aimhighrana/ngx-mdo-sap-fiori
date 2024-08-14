@@ -10,6 +10,7 @@ import { Ui5I18nModule } from '@ui5/webcomponents-ngx/i18n';
 import '@ui5/webcomponents-icons/dist/AllIcons.js';
 import '@ui5/webcomponents/dist/features/InputElementsFormSupport.js';
 import { AppRoutingModule } from './app-routing.module';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,9 @@ import { AppRoutingModule } from './app-routing.module';
       }
     })
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers:[
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
+  ]
 })
 export class AppModule { }
