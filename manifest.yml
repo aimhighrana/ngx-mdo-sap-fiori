@@ -1,0 +1,6 @@
+applications:
+  - name: mdo-fuse
+    buildpack: staticfile_buildpack
+    memory: 2048MB
+    disk_quota: 2048MB
+    instances: 1
