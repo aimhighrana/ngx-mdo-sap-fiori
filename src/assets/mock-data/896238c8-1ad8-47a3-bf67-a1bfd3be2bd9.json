@@ -1,0 +1,54 @@
+[
+    {
+        "fieldId": "FLD_744968254",
+        "structureId": 1,
+        "order": 0,
+        "moduleId": 16557,
+        "fieldType": "FIELD",
+        "fieldCtrl": {
+            "description": "Field Name Ref",
+            "dataType": "CHAR",
+            "pickList": "30",
+            "maxChar": 50,
+            "structureId": 1,
+            "fieldId": "FLD_744968254",
+            "isCriteriaField": false,
+            "isWorkFlow": false,
+            "isGridColumn": false,
+            "isDescription": false,
+            "textCase": "None",
+            "isFutureDate": false,
+            "isPastDate": false,
+            "moduleId": 16557,
+            "isReference": true,
+            "isDefault": false,
+            "isHeirarchy": false,
+            "isWorkFlowCriteria": false,
+            "isNumSettingCriteria": false,
+            "isCheckList": false,
+            "isCompBased": false,
+            "dateModified": 1719990142918,
+            "isTransient": false,
+            "isSearchEngine": true,
+            "isPermission": false,
+            "isMandatory": false,
+            "isKeyField": false,
+            "isMultiSelect": false,
+            "isReadOnly": false,
+            "isHidden": false,
+            "refDatasetField": {
+                "fieldId": "FLD_318066710",
+                "fieldDesc": "Material Group"
+            },
+            "refDataset": {
+                "datasetId": 16557,
+                "datasetDesc": "Material"
+            },
+            "structDesc": "Header Data",
+            "isExternalLookup": false,
+            "isRestricted": false
+        },
+        "isRestricted": false,
+        "longDescEnabled": false
+    }
+]

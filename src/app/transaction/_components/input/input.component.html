@@ -1,0 +1,11 @@
+<div class="mdo-input">
+    <ui5-label id="myLabel" [for]="field?.fieldId" showColon>
+        {{field?.fieldCtrl?.description}}
+    </ui5-label>
+    <ui5-input
+      [id]="field?.fieldId"
+      class="samples-margin samples-responsive-margin-bottom"
+      [show-clear-icon]="true"
+      value="Input"
+    ></ui5-input>
+</div>

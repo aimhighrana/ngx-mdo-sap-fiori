@@ -1,0 +1,20 @@
+[
+    {
+        "tabid": "523a8f4e-3f7a-4165-bdf8-9fef8d4eef65",
+        "description": "Header data",
+        "tabOrder": 0,
+        "isTabReadOnly": false,
+        "isTabHidden": false,
+        "udrId": null,
+        "information": null
+    },
+    {
+        "tabid": "896238c8-1ad8-47a3-bf67-a1bfd3be2bd9",
+        "description": "distribution child",
+        "tabOrder": 2,
+        "isTabReadOnly": false,
+        "isTabHidden": false,
+        "udrId": null,
+        "information": null
+    }
+]

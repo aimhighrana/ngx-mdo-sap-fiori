@@ -1,0 +1,15 @@
+<ui5-panel
+  width="100%"
+  accessible-role="Complementary"
+  header-text="{{ tab?.description }}"
+>
+    <ng-container *ngFor="let field of fields">
+        <ng-container [ngSwitch]="field?.fieldCtrl?.pickList">
+            
+            <pros-dropdown [field]="field" *ngSwitchCase="'1'"></pros-dropdown>
+
+            <pros-input [field]="field" *ngSwitchDefault></pros-input>
+        </ng-container>
+
+    </ng-container>
+</ui5-panel>

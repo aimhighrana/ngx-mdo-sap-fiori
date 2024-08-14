@@ -1,0 +1,10 @@
+<div class="mdo-dropdown">
+    <ui5-label id="myLabel" [for]="field?.fieldId" showColon>
+        {{field?.fieldCtrl?.description}}
+    </ui5-label>
+    <ui5-select [id]="field?.fieldId">
+        <ui5-option icon="iphone">Phone</ui5-option>
+        <ui5-option icon="ipad">Tablet</ui5-option>
+        <ui5-option icon="laptop" [selected]="true">Desktop</ui5-option>
+      </ui5-select>
+</div>
