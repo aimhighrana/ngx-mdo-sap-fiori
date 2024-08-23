@@ -1,0 +1,71 @@
+<div class="login-root">
+  <ui5-shellbar [primary-title]="'SHELLBAR_TITLE' | ui5I18n">
+    <ui5-avatar slot="profile" icon="customer"></ui5-avatar>
+    <img
+      class="logo"
+      slot="logo"
+      src="assets/images/mdo-logo-white.svg"
+      [alt]="'ALT_LOGO' | ui5I18n"
+    />
+  </ui5-shellbar>
+
+  <div class="f-col login-container">
+    <div class="row-spacer"></div>
+    <ui5-card class="large f-col login-section">
+      <ui5-card-header
+        slot="header"
+        [title-text]="'SIGN_IN' | ui5I18n"
+        class="login-section-header"
+      >
+      </ui5-card-header>
+
+      <div class="content content-padding">
+        <form [formGroup]="$loginForm">
+          <div *ngIf="error">
+            <ui5-message-strip design="Negative"
+              >{{ (error == 'empty_username_password' ? 'EMPTY_USERNAME_PASSWORD' : 'INVALID_USERNAME_PASSWORD') | ui5I18n }}</ui5-message-strip
+            >
+            <div class="row-spacer"></div>
+          </div>
+
+          <div class="mdo-input">
+            <ui5-label id="username-label" for="username" showColon [required]="true">
+              {{ "USERNAME" | ui5I18n }}
+            </ui5-label>
+            <ui5-input
+              id="username"
+              #username
+              class="samples-margin samples-responsive-margin-bottom"
+              [show-clear-icon]="true"
+              [placeholder]="'USERNAME_PLACEHOLDER' | ui5I18n"
+              [required]="true"
+            ></ui5-input>
+          </div>
+          <div class="row-spacer"></div>
+
+          <div class="mdo-input">
+            <ui5-label id="password-label" for="password" showColon [required]="true">
+              {{ "PASSWORD" | ui5I18n }}
+            </ui5-label>
+            <ui5-input
+              id="password"
+              #password
+              class="samples-margin samples-responsive-margin-bottom"
+              type="Password"
+              [show-clear-icon]="true"
+              [required]="true"
+              [placeholder]="'PASSWORD_PLACEHOLDER' | ui5I18n"
+            ></ui5-input>
+          </div>
+
+          <div class="row-spacer"></div>
+          <div class="login-submit-btn">
+            <ui5-button design="Default" (ui5Click)="signIn()">
+              {{ "LOGIN_BTN" | ui5I18n }}
+            </ui5-button>
+          </div>
+        </form>
+      </div>
+    </ui5-card>
+  </div>
+</div>

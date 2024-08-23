@@ -55,3 +55,56 @@
         display: none;
     }
 }
+
+
+//Flex row and col
+.f-row {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .f-col {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  //Spacer's
+  .f-col-spacer-half {
+    width: 8px;
+  }
+  
+  .f-row-spacer-half {
+    height: 8px;
+  }
+  
+  .f-justify-center {
+    justify-content: center;
+  }
+  
+  .f-justify-space-between {
+    justify-content: space-between;
+  }
+  
+  .col-spacer {
+    width: 16px;
+  }
+  
+  .row-spacer {
+    height: 16px;
+  }
+  
+  .f-spacer {
+    flex-grow: 1;
+  }
+
+
+ui5-icon {
+    box-sizing: content-box;
+    border-left: 1px solid #89919A;
+}
+
+ui5-icon:hover {
+    cursor: pointer;
+    color: #861645; /* choose your color*/
+}
+

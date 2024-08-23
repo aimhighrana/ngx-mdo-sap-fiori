@@ -1,24 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { LayoutRoutingModule } from './layout-routing.module';
-import { LayoutComponent } from './_components/layout/layout.component';
-import { HeaderComponent } from './_components/header/header.component';
+import { WelcomeRoutingModule } from './welcome-routing.module';
+import { WelcomeComponent } from './_components/welcome/welcome.component';
 import { Ui5WebcomponentsIconsModule, Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
 import { Ui5I18nModule } from '@ui5/webcomponents-ngx/i18n';
 
 
 @NgModule({
   declarations: [
-    LayoutComponent,
-    HeaderComponent
+    WelcomeComponent
   ],
   imports: [
     CommonModule,
-    LayoutRoutingModule,
+    WelcomeRoutingModule,
     Ui5WebcomponentsModule,
     Ui5I18nModule,
     Ui5WebcomponentsIconsModule
   ]
 })
-export class LayoutModule { }
+export class WelcomeModule { }

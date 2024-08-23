@@ -3,7 +3,6 @@
     "CHOOSE_THEME": "Change Theme",
     "APPLY": "Apply",
     "CANCEL": "Cancel",
-    "SECTION_TITLE": "Your Flight Information",
     "SEARCH_PLACEHOLDER": "Search everything",
     "SHELLBAR_TITLE": "Fuse",
     "WELCOME": "Welcome",
@@ -94,5 +93,24 @@
 
     "MATERIAL":"Material Master",
     "HELP_DESK":"MDO Help desk",
-    "WELCOME_MDO":"Welcome to MDO Fuse SAP fiori"
+    "WELCOME_MDO":"Welcome to MDO Fuse SAP fiori",
+    "SIGN_IN":"Sign in",
+    "USERNAME":"Username",
+    "PASSWORD":"Password",
+    "USERNAME_PLACEHOLDER":"Please enter username!",
+    "PASSWORD_PLACEHOLDER":"Please enter password!",
+    "LOGIN_BTN":"Login",
+    "EMPTY_USERNAME_PASSWORD":"Username or Password can't be empty.",
+    "INVALID_USERNAME_PASSWORD":"Invalid username or password.",
+
+    "WELCOME_PAGE_MDO_PROCESS":"Please select the dataset process.",
+    "MATERIAL_MASTER_TITLE":"Material",
+    "MATERIAL_MASTER_SUB_TITLE":"Basic spare part request",
+    "FLOC_MASTER_TITLE":"Functional Location",
+    "FLOC_MASTER_SUB_TITLE":"Create function location from external systems",
+
+    "ANALYTICS_TITLE":"Analytics",
+    "ANALYTICS_SUB_TITLE":"Progress dashboard"
+    
+
 }
