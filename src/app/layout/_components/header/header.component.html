@@ -1,63 +1,147 @@
-<ui5-shellbar id="shellbar" [primary-title]="'SHELLBAR_TITLE' | ui5I18n">
-    <img class="logo" slot="logo" src="assets/images/mdo-logo-white.svg" [alt]="'ALT_LOGO' | ui5I18n" />
-    <ui5-input slot="searchField" [placeholder]="'SEARCH_PLACEHOLDER' | ui5I18n"></ui5-input>
-    <ui5-shellbar-item icon="palette" (click)="setThemeDialogOpen()"
-        [text]="'CHOOSE_THEME' | ui5I18n"></ui5-shellbar-item>
-    <ui5-shellbar-item icon="translate" (click)="setLanguageDialogOpen()"
-        [text]="'CHOOSE_LANGUAGE' | ui5I18n"></ui5-shellbar-item>
+<ui5-shellbar
+  id="shellbar"
+  [primary-title]="'SHELLBAR_TITLE' | ui5I18n"
+  (profileClick)="handleProfileClick($event)"
+>
+  <img
+    class="logo"
+    slot="logo"
+    src="assets/images/mdo-logo-white.svg"
+    [alt]="'ALT_LOGO' | ui5I18n"
+  />
+  <ui5-avatar slot="profile" icon="customer"></ui5-avatar>
+  <ui5-input
+    slot="searchField"
+    [placeholder]="'SEARCH_PLACEHOLDER' | ui5I18n"
+  ></ui5-input>
+  <ui5-shellbar-item
+    icon="palette"
+    (click)="setThemeDialogOpen()"
+    [text]="'CHOOSE_THEME' | ui5I18n"
+  ></ui5-shellbar-item>
+  <ui5-shellbar-item
+    icon="translate"
+    (click)="setLanguageDialogOpen()"
+    [text]="'CHOOSE_LANGUAGE' | ui5I18n"
+  ></ui5-shellbar-item>
 </ui5-shellbar>
 
 <!-- Theme select dialog -->
-<ui5-dialog [header-text]="'CHOOSE_THEME' | ui5I18n" [open]="themeDialogOpen"
-    [accessible-name]="'CHOOSE_THEME' | ui5I18n">
-    <div id="themeRadioGroup">
-        <div *ngFor="let theme of themes">
-            <ui5-radio-button #themeRadioValue [text]="theme.displayName" [value]="theme.usageName" value-state="None"
-                [checked]="theme.usageName===currentTheme" (change)="setSelectedTheme(themeRadioValue.value)"
-                name="ThemeGroup"></ui5-radio-button>
-        </div>
+<ui5-dialog
+  [header-text]="'CHOOSE_THEME' | ui5I18n"
+  [open]="themeDialogOpen"
+  [accessible-name]="'CHOOSE_THEME' | ui5I18n"
+>
+  <div id="themeRadioGroup">
+    <div *ngFor="let theme of themes">
+      <ui5-radio-button
+        #themeRadioValue
+        [text]="theme.displayName"
+        [value]="theme.usageName"
+        value-state="None"
+        [checked]="theme.usageName === currentTheme"
+        (change)="setSelectedTheme(themeRadioValue.value)"
+        name="ThemeGroup"
+      ></ui5-radio-button>
     </div>
-    <div class="dialog__footer" slot="footer">
-        <ui5-button design="Emphasized" (click)="switchTheme()">{{'APPLY' | ui5I18n}}</ui5-button>
-        <ui5-button class="dialog__footer__button" (click)="setThemeDialogOpen()">{{'CANCEL' | ui5I18n}}</ui5-button>
-    </div>
+  </div>
+  <div class="dialog__footer" slot="footer">
+    <ui5-button design="Emphasized" (click)="switchTheme()">{{
+      "APPLY" | ui5I18n
+    }}</ui5-button>
+    <ui5-button class="dialog__footer__button" (click)="setThemeDialogOpen()">{{
+      "CANCEL" | ui5I18n
+    }}</ui5-button>
+  </div>
 </ui5-dialog>
 
 <!-- Language select dialog -->
-<ui5-dialog [header-text]="'CHOOSE_LANGUAGE' | ui5I18n" [open]="languageDialogOpen"
-    [accessible-name]="'CHOOSE_LANGUAGE' | ui5I18n">
-    <div id="languageRadioGroup">
-        <div *ngFor="let language of languages">
-            <ui5-radio-button #languageRadioValue [text]="language.displayName" [value]="language.usageName"
-                value-state="None" [checked]="language.usageName===currentLanguage"
-                (change)="setSelectedLanguage(languageRadioValue.value)" name="languageGroup"></ui5-radio-button>
-        </div>
+<ui5-dialog
+  [header-text]="'CHOOSE_LANGUAGE' | ui5I18n"
+  [open]="languageDialogOpen"
+  [accessible-name]="'CHOOSE_LANGUAGE' | ui5I18n"
+>
+  <div id="languageRadioGroup">
+    <div *ngFor="let language of languages">
+      <ui5-radio-button
+        #languageRadioValue
+        [text]="language.displayName"
+        [value]="language.usageName"
+        value-state="None"
+        [checked]="language.usageName === currentLanguage"
+        (change)="setSelectedLanguage(languageRadioValue.value)"
+        name="languageGroup"
+      ></ui5-radio-button>
     </div>
-    <div class="dialog__footer" slot="footer">
-        <ui5-button design="Emphasized" (click)="switchLanguage()">{{'APPLY' | ui5I18n}}</ui5-button>
-        <ui5-button class="dialog__footer__button" (click)="setLanguageDialogOpen()">{{'CANCEL' | ui5I18n}}</ui5-button>
-    </div>
+  </div>
+  <div class="dialog__footer" slot="footer">
+    <ui5-button design="Emphasized" (click)="switchLanguage()">{{
+      "APPLY" | ui5I18n
+    }}</ui5-button>
+    <ui5-button
+      class="dialog__footer__button"
+      (click)="setLanguageDialogOpen()"
+      >{{ "CANCEL" | ui5I18n }}</ui5-button
+    >
+  </div>
 </ui5-dialog>
 
-
 <!-- Main header -->
-<ui5-title class="title" level="H2">
-    {{'WELCOME_MDO' | ui5I18n}}!
-</ui5-title>
+<!-- <ui5-title class="title" level="H3"> {{ "WELCOME_MDO" | ui5I18n }}! </ui5-title> -->
 
-<ui5-tabcontainer class="show-at-desktop hidden-at-tablet hidden-at-mobile" header-background-design="Solid"
-    content-background-design="Solid" [fixed]="true" [collapsed]="true">
-    <ui5-tab [text]="'MATERIAL' | ui5I18n"></ui5-tab>
-    <ui5-tab [text]="'HELP_DESK' | ui5I18n"></ui5-tab>
+<!-- <ui5-tabcontainer
+  class="show-at-desktop hidden-at-tablet hidden-at-mobile"
+  header-background-design="Solid"
+  content-background-design="Solid"
+  [fixed]="true"
+  [collapsed]="true"
+>
+  <ui5-tab [text]="'MATERIAL' | ui5I18n"></ui5-tab>
+  <ui5-tab [text]="'HELP_DESK' | ui5I18n"></ui5-tab>
 </ui5-tabcontainer>
 
-<ui5-tabcontainer class="hidden-at-desktop show-at-tablet hidden-at-mobile" [collapsed]=" true" [fixed]="true">
-    <ui5-tab [text]="'MATERIAL' | ui5I18n"></ui5-tab>
-    <ui5-tab [text]="'HELP_DESK' | ui5I18n"></ui5-tab>
+<ui5-tabcontainer
+  class="hidden-at-desktop show-at-tablet hidden-at-mobile"
+  [collapsed]="true"
+  [fixed]="true"
+>
+  <ui5-tab [text]="'MATERIAL' | ui5I18n"></ui5-tab>
+  <ui5-tab [text]="'HELP_DESK' | ui5I18n"></ui5-tab>
 </ui5-tabcontainer>
 
-<ui5-tabcontainer class="hidden-at-desktop hidden-at-tablet show-at-mobile" header-background-design="Solid"
-    content-background-design="Solid" [fixed]="true" [collapsed]="true">
-    <ui5-tab [text]="'MATERIAL' | ui5I18n"></ui5-tab>
-    <ui5-tab [text]="'HELP_DESK' | ui5I18n"></ui5-tab>
-</ui5-tabcontainer>
+<ui5-tabcontainer
+  class="hidden-at-desktop hidden-at-tablet show-at-mobile"
+  header-background-design="Solid"
+  content-background-design="Solid"
+  [fixed]="true"
+  [collapsed]="true"
+>
+  <ui5-tab [text]="'MATERIAL' | ui5I18n"></ui5-tab>
+  <ui5-tab [text]="'HELP_DESK' | ui5I18n"></ui5-tab>
+</ui5-tabcontainer> -->
+
+<ui5-popover
+  #profileSettingsPopover
+  id="profile-pop"
+  class="app-bar-profile-popover"
+  placement-type="Bottom"
+  horizontal-align="Right"
+>
+  <div class="profile-settings">
+    <ui5-avatar size="M" [initials]="initials"></ui5-avatar>
+    <div class="profile-text">
+      <ui5-title level="H3">
+        {{ user?.fname ? (user?.fname + ' ' + user?.lname) : user?.pemail}}
+      </ui5-title>
+      <ui5-label>{{user?.status}}</ui5-label>
+    </div>
+  </div>
+
+  <div class="profile-settings-list">
+    <ui5-list mode="SingleSelect"
+      separators="None" (itemClick)="handleProfileSettingsSelect($event)">
+      <ui5-li icon="sys-help" data-key="help">Help</ui5-li>
+      <ui5-li icon="log" data-key="sign-out">Sign out</ui5-li>
+    </ui5-list>
+  </div>
+</ui5-popover>

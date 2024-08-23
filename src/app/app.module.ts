@@ -1,16 +1,17 @@
 import { inject, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { Ui5ThemingModule } from '@ui5/theming-ngx';
 import { LayoutGridModule } from '@fundamental-ngx/core/layout-grid';
-import { Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
+import { Ui5WebcomponentsIconsModule, Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
 import { Ui5I18nModule } from '@ui5/webcomponents-ngx/i18n';
 import '@ui5/webcomponents-icons/dist/AllIcons.js';
 import '@ui5/webcomponents/dist/features/InputElementsFormSupport.js';
 import { AppRoutingModule } from './app-routing.module';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { JwtInterceptorService } from './services/jwt-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     BrowserModule,
     AppRoutingModule,
     Ui5ThemingModule.forRoot({
-      defaultTheme: "sap_fiori_3" // sap_fiori_3_dark
+      defaultTheme: "sap_fiori_3" // sap_fiori_3_dark sap_horizon sap_fiori_3
     }),
     Ui5WebcomponentsModule,
     LayoutGridModule,
@@ -41,11 +42,17 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
           }
         }
       }
-    })
+    }),
+    Ui5WebcomponentsIconsModule.forRoot([
+      "sap-icons",
+      "tnt-icons",
+      "business-suite-icons"
+    ])
   ],
   bootstrap: [AppComponent],
   providers:[
-    {provide: LocationStrategy, useClass: HashLocationStrategy}
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true }
   ]
 })
 export class AppModule { }

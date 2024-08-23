@@ -1,0 +1,50 @@
+@import "node_modules/@fundamental-styles/common-css/dist/sass/common-mixins";
+
+.login-root {
+  justify-content: center;
+  height: 95.3vh;
+
+  .login-container {
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #cccccc;
+    .display-heading {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-bottom: 24px;
+    }
+
+    .login-section {
+      width: 500px;
+      padding: 24px;
+
+      .login-section-header {
+        display: flex;
+        justify-content: center;
+      }
+
+      .content-padding {
+        padding: 16px;
+      }
+      .login-submit-btn {
+        display: flex;
+        justify-content: end;
+      }
+    }
+
+
+  }
+
+  .mdo-input {
+    display: grid;
+    width: 100%;
+    ui5-input {
+        width: 100%;
+    }
+  }
+}
+
+@media screen {
+    
+}
