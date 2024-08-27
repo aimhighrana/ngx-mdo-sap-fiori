@@ -110,7 +110,18 @@
     "FLOC_MASTER_SUB_TITLE":"Create function location from external systems",
 
     "ANALYTICS_TITLE":"Analytics",
-    "ANALYTICS_SUB_TITLE":"Progress dashboard"
+    "ANALYTICS_SUB_TITLE":"Progress dashboard",
+    "PROFILE_HELP":"Help",
+    "PROFILE_SIGNOUT":"Sign out",
+
+    "FLOW_SELCTION":"Flow selection",
+    "FLOW_INPUT":"Please select a flow",
+
+    "INPUT_PLACEHOLDER":"Please enter a value",
+    
+
+    "SUBMIT":"Submit",
+    "DISCARD":"Discard"
     
 
 }

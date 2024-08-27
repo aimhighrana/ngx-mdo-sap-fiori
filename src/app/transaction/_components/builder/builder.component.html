@@ -1,8 +1,30 @@
-<section class="pros-content">
+<div class="transaction-root">
+  <div class="breadcrumb f-row">
+    <ui5-breadcrumbs>
+      <ui5-breadcrumbs-item href="#" [routerLink]="['home','welcome']">
+        Home
+      </ui5-breadcrumbs-item>
+      <ui5-breadcrumbs-item>
+        {{ 'Create ' +  datasetDetails?.moduleDescriptionRequestDTO?.description || datasetId}}
+      </ui5-breadcrumbs-item>
+    </ui5-breadcrumbs>
+    <div class="actions">
+        <ui5-button design="Emphasized" (ui5Click)="submit()" [disabled]="isSaving">Save</ui5-button>
+    </div>
+  </div>
+
+  <div class="transaction-page">
+    <div *ngIf="errorState.error">
+      <div class="row-spacer"></div>
+      <ui5-message-strip [design]="errorState.level === 'success' ? 'Positive' : 'Negative'"
+        >{{errorState.error || ''}}</ui5-message-strip
+      >
+      <div class="row-spacer"></div>
+    </div>
+    <ng-container *ngFor="let tab of tabs">
+        <pros-tab [tab]="tab" [datasetId]="datasetId" [flowId]="flowId"></pros-tab>
+      </ng-container>
+  </div>
+</div>
 
 
-    <ng-container *ngFor="let tab of tabs" >
-        <pros-tab [tab]="tab"></pros-tab>
-    </ng-container>
-
-</section>

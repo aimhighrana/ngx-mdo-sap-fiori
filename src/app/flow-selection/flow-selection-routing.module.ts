@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BuilderComponent } from './_components/builder/builder.component';
+import { FlowComponent } from '../welcome/_components/flow/flow.component';
 
 const routes: Routes = [
   {
-    path:':dataset/create',component: BuilderComponent
+    path: ':dataset', component: FlowComponent
   }
 ];
 
@@ -12,4 +12,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TransactionRoutingModule { }
+export class FlowSelectionRoutingModule { }

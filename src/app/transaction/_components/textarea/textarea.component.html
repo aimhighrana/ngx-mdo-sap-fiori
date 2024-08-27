@@ -1,0 +1,13 @@
+<div class="mdo-input">
+  <ui5-label id="myLabel" [for]="field?.fieldId" showColon>
+    {{ field?.fieldCtrl?.description }}
+  </ui5-label>
+
+  <ui5-textarea
+    [id]="field?.fieldId"
+    class="textarea-width"
+    [show-exceeded-text]="true"
+    [placeholder]="'INPUT_PLACEHOLDER' | ui5I18n"
+    (change)="valueChange($event)"
+  ></ui5-textarea>
+</div>

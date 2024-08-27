@@ -32,7 +32,7 @@ export class HeaderComponent {
   languageDialogOpen = false;
   languages = LANGUAGES;
 
-  user!: User;
+  user: User = new User();
 
   @ViewChild("profileSettingsPopover") profileSettingsPopover:
     | ElementRef

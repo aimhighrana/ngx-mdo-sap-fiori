@@ -12,6 +12,12 @@ export class TabComponent implements OnInit, OnChanges {
 
   @Input()
   tab?: Tabs;
+
+  @Input()
+  datasetId?: string;
+
+  @Input()
+  flowId?: string;
   
   fields: Fields[] = [];
 
@@ -19,13 +25,16 @@ export class TabComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if(changes?.['tab']?.currentValue !== null && changes?.['tab']?.currentValue !== changes?.['tab']?.previousValue) {
-      this.service.getFields(this.tab?.tabid as string).subscribe({
-        next:(res)=> { this.fields = res; console.log(this.fields)}
-      })
+      this.getFields();
     }
   }
-  ngOnInit(): void {
-    
+
+  ngOnInit(): void {}
+
+  public getFields() {
+    this.service.getFields(this.tab?.tabid as string, this.datasetId || '', this.flowId || '').subscribe({
+      next:(res)=> { this.fields = res; console.log(this.fields)}
+    })
   }
 
 

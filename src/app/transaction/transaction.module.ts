@@ -8,6 +8,7 @@ import { Ui5I18nModule } from '@ui5/webcomponents-ngx/i18n';
 import { TabComponent } from './_components/tab/tab.component';
 import { InputComponent } from './_components/input/input.component';
 import { DropdownComponent } from './_components/dropdown/dropdown.component';
+import { TextareaComponent } from './_components/textarea/textarea.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { DropdownComponent } from './_components/dropdown/dropdown.component';
     BuilderComponent,
     TabComponent,
     InputComponent,
-    DropdownComponent
+    DropdownComponent,
+    TextareaComponent
   ],
   imports: [
     CommonModule,

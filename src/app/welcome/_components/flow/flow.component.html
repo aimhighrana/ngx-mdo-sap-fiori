@@ -1,0 +1,38 @@
+<div class="f-col flow-container">
+  <div class="content content-padding flow-section">
+    
+    <div *ngIf="error">
+        <ui5-message-strip design="Negative">
+          {{ error }}
+        </ui5-message-strip>
+      <div class="row-spacer"></div>
+    </div>
+
+    <div class="mdo-input">
+      <ui5-label id="flow-label" for="flow" showColon [required]="true">
+        {{ "FLOW_INPUT" | ui5I18n }}
+      </ui5-label>
+      <ui5-select id="flow" #flowInp (change)="onValueChange($event)">
+        <ui5-option value="">Select an option</ui5-option>
+
+        <ui5-option icon="workflow-tasks" *ngFor="let flow of $flows" [value]="flow?.flowId">
+          {{ flow?.flowDesc || flow?.flowId}}
+        </ui5-option>
+      </ui5-select>
+    </div>
+
+    <div class="row-spacer"></div>
+
+    <div class="flow-submit-btn">
+      <ui5-button design="Default" (click)="dialog.open=false">
+        {{ "DISCARD" | ui5I18n }}
+      </ui5-button>
+
+      <div class="f-col-spacer-half"></div>
+
+      <ui5-button design="Default" (ui5Click)="submit()">
+        {{ "SUBMIT" | ui5I18n }}
+      </ui5-button>
+    </div>
+  </div>
+</div>
