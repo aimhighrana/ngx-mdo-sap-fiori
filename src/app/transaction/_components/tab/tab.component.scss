@@ -1,0 +1,25 @@
+.tab-root {
+  .form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem; /* Adjust spacing between columns and rows if needed */
+  }
+
+  /* columns */
+  .form-container > * {
+    padding: 8px;
+  }
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+  .form-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    grid-template-columns: 1fr; /* 1 column on very small screens */
+  }
+}

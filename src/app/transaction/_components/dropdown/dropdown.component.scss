@@ -1,4 +1,8 @@
 .mdo-dropdown {
-    display: grid;
+    display: inline-grid;
     width: 100%;
+
+    ui5-select {
+        width: 100%;
+    }
 }

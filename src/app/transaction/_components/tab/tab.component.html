@@ -1,15 +1,18 @@
-<ui5-panel
-  width="100%"
-  accessible-role="Complementary"
-  header-text="{{ tab?.description }}"
->
-    <ng-container *ngFor="let field of fields">
-        <ng-container [ngSwitch]="field?.fieldCtrl?.pickList">
-            
-            <pros-dropdown [field]="field" *ngSwitchCase="'1'"></pros-dropdown>
-
+<div class="tab-root">
+    <ui5-panel
+      width="100%"
+      accessible-role="Complementary"
+      header-text="{{ tab?.description }}"
+    >
+      <div class="form-container">
+        <div *ngFor="let field of fields" class="form-item">
+          <ng-container [ngSwitch]="field?.fieldCtrl?.pickList">
+            <pros-dropdown [field]="field" [datasetId]="datasetId" *ngSwitchCase="'1'"></pros-dropdown>
+            <pros-textarea [field]="field" [datasetId]="datasetId" *ngSwitchCase="'31'"></pros-textarea>
             <pros-input [field]="field" *ngSwitchDefault></pros-input>
-        </ng-container>
-
-    </ng-container>
-</ui5-panel>
+          </ng-container>
+        </div>
+      </div>
+    </ui5-panel>
+  </div>
+  

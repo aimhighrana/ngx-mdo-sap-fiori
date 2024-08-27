@@ -11,9 +11,11 @@ const routes: Routes = [
         pathMatch: 'full'
       },{
         path:'welcome', loadChildren:()=>import('../welcome/welcome.module').then((m)=> m.WelcomeModule)
+      },{
+        path: 'flow', loadChildren:()=> import('../flow-selection/flow-selection.module').then((m)=> m.FlowSelectionModule)
       },
       {
-        path: 'master', loadChildren:()=> import('../transaction/transaction.module').then((m)=> m.TransactionModule)
+        path: 'transaction', loadChildren:()=> import('../transaction/transaction.module').then((m)=> m.TransactionModule)
       }
     ]
   }

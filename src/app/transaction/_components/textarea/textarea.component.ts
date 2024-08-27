@@ -3,11 +3,11 @@ import { Fields } from 'src/app/interfaces/Fields';
 import { TransactionService } from 'src/app/services/transaction.service';
 
 @Component({
-  selector: 'pros-input',
-  templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss']
+  selector: 'pros-textarea',
+  templateUrl: './textarea.component.html',
+  styleUrls: ['./textarea.component.scss']
 })
-export class InputComponent {
+export class TextareaComponent {
 
   @Input()
   field?: Fields;
@@ -21,7 +21,8 @@ export class InputComponent {
 
 
   public valueChange(event: Event) {
-    const evt = event.target as HTMLInputElement;
+    const evt = event.target as HTMLTextAreaElement;
     this.transaction.insertIntoHdvs(this.field?.fieldId || '', evt?.value || '')
   }
+
 }

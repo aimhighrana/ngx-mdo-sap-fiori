@@ -131,17 +131,21 @@
     <ui5-avatar size="M" [initials]="initials"></ui5-avatar>
     <div class="profile-text">
       <ui5-title level="H3">
-        {{ user?.fname ? (user?.fname + ' ' + user?.lname) : user?.pemail}}
+        {{ user.fname ? (user.fname + ' ' + user.lname) : user.pemail}}
       </ui5-title>
-      <ui5-label>{{user?.status}}</ui5-label>
+      <ui5-label>{{user.status || ''}}</ui5-label>
     </div>
   </div>
 
   <div class="profile-settings-list">
     <ui5-list mode="SingleSelect"
       separators="None" (itemClick)="handleProfileSettingsSelect($event)">
-      <ui5-li icon="sys-help" data-key="help">Help</ui5-li>
-      <ui5-li icon="log" data-key="sign-out">Sign out</ui5-li>
+      <ui5-li icon="sys-help" data-key="help">
+        {{'PROFILE_HELP' | ui5I18n}}
+      </ui5-li>
+      <ui5-li icon="log" data-key="sign-out">
+        {{'PROFILE_SIGNOUT' | ui5I18n}}
+      </ui5-li>
     </ui5-list>
   </div>
 </ui5-popover>

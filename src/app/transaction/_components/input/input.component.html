@@ -6,6 +6,7 @@
       [id]="field?.fieldId"
       class="samples-margin samples-responsive-margin-bottom"
       [show-clear-icon]="true"
-      value="Input"
+      [placeholder]="'INPUT_PLACEHOLDER' | ui5I18n"
+      (change)="valueChange($event)"
     ></ui5-input>
 </div>

@@ -98,6 +98,13 @@
   }
 
 
+  /* Make each column take up equal space */
+.two-column .column {
+  flex: 1;
+}
+
+
+
 ui5-icon {
     box-sizing: content-box;
     border-left: 1px solid #89919A;

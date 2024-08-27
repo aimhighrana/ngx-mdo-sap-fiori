@@ -1,0 +1,22 @@
+.flow-container {
+  .flow-section {
+    width: 500px;
+    padding: 16px;
+
+    .content-padding {
+      padding: 16px;
+    }
+    .flow-submit-btn {
+      display: flex;
+      justify-content: end;
+    }
+  }
+}
+
+.mdo-input {
+  display: grid;
+  width: 100%;
+  ui5-select {
+    width: 100%;
+  }
+}

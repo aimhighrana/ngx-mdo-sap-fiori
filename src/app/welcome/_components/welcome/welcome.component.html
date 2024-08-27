@@ -1,27 +1,20 @@
 <div class="welcome-root">
-    
-    <ui5-title class="title" level="H3"> {{ "WELCOME_PAGE_MDO_PROCESS" | ui5I18n }} </ui5-title>
-
-    
-    <ui5-product-switch>
-        <ui5-product-switch-item
-        
-        [title-text]="'MATERIAL_MASTER_TITLE' | ui5I18n"
-        [subtitle-text]="'MATERIAL_MASTER_SUB_TITLE' | ui5I18n"
-        icon="create"
-        ></ui5-product-switch-item>
-
-        <ui5-product-switch-item
-        [title-text]="'FLOC_MASTER_TITLE' | ui5I18n"
-        [subtitle-text]="'FLOC_MASTER_SUB_TITLE' | ui5I18n"
-
-          icon="create"
-        ></ui5-product-switch-item>
-
-        <ui5-product-switch-item
-          [title-text]="'ANALYTICS_TITLE' | ui5I18n"
-          [subtitle-text]="'ANALYTICS_SUB_TITLE' | ui5I18n"
-          icon="business-objects-experience"
-        ></ui5-product-switch-item>       
-      </ui5-product-switch>
+  <ui5-title class="title" level="H3">
+    {{ "WELCOME_PAGE_MDO_PROCESS" | ui5I18n }}
+  </ui5-title>
+  <ui5-product-switch>
+    <ui5-product-switch-item
+      [title-text]="dataset?.moduleDescriptionRequestDTO?.description"
+      [subtitle-text]="
+        'Create ' + dataset?.moduleDescriptionRequestDTO?.information
+      "
+      icon="create"
+      (click)="selectedDataset=dataset;flowSelection.open = true"
+      *ngFor="let dataset of $datasets"
+    ></ui5-product-switch-item>
+  </ui5-product-switch>
 </div>
+
+<ui5-dialog #flowSelection="ui5Dialog" [header-text]="'FLOW_SELCTION' | ui5I18n">
+  <pros-flow [dialog]="flowSelection" [dataset]="selectedDataset"></pros-flow>
+</ui5-dialog>
