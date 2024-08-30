@@ -31,7 +31,8 @@ export class WelcomeComponent implements OnInit , AfterViewInit{
 
   ngOnInit(): void {
     this.service.getModules().subscribe({
-      next:(res)=> this.$datasets = res.filter(f=> f.moduleId === '487809' || f.moduleId === '263347')
+      // next:(res)=> this.$datasets = res.filter(f=> f.moduleId === '487809' || f.moduleId === '263347')
+      next: (res) => this.$datasets = res
     });
   }
 
